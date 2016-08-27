@@ -1,0 +1,30 @@
+{
+    "env": {
+        "node": true
+    },
+
+    "extends": "eslint:recommended",
+
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "strict": 2,
+        "no-unused-vars": 2,
+        "no-cond-assign": 2,
+        "camelcase": 1
+    }
+}
