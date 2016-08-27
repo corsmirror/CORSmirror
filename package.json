@@ -5,8 +5,9 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "bin/www",
   "scripts": {
-    "start": "node bin/www",
-    "test": "eslint ."
+    "start": "NODE_ENV=production node bin/www",
+    "test": "eslint .",
+    "dev": "nodemon bin/www"
   },
   "keywords": [
     "corsmirror",
@@ -23,7 +24,8 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "eslint": "^3.4.0"
+    "eslint": "^3.4.0",
+    "nodemon": "^1.10.2"
   },
   "license": "MIT"
 }

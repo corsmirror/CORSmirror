@@ -1,0 +1,12 @@
+{
+    "ignore": [
+        "*.swp",
+        "*.log",
+        "*.md"
+    ],
+    "verbose": false,
+    "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "corsmirror:*"
+    }
+}
