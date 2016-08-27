@@ -20,7 +20,11 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Routes.
+ */
 app.use('/', require('./routes/index'));
+app.use('/v1', require('./routes/v1'));
 
 /**
  * Catch 404 and forward to error handler.
