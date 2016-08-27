@@ -1,0 +1,12 @@
+{
+  "name": "corsmirror",
+  "version": "0.0.1",
+  "description": "Mirror sites with CORS enabled.",
+  "author": "Mark <mark@remarkablemark.org>",
+  "keywords": [
+    "corsmirror",
+    "cors mirror",
+    "cors"
+  ],
+  "license": "MIT"
+}
