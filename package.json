@@ -3,10 +3,23 @@
   "version": "0.0.1",
   "description": "Mirror sites with CORS enabled.",
   "author": "Mark <mark@remarkablemark.org>",
+  "main": "bin/www",
+  "scripts": {
+    "start": "node bin/www"
+  },
   "keywords": [
     "corsmirror",
     "cors mirror",
     "cors"
   ],
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
   "license": "MIT"
 }
