@@ -25,7 +25,7 @@ router.all('/cors', function(req, res, next) {
         // and respond with the status, headers, and body
         request(options, function(error, response, body) {
             if (error) {
-                return next(error);
+                return res.status(500).send(error.message);
             }
 
             // exclude response CORS headers to prevent existing
@@ -48,7 +48,8 @@ router.all('/cors', function(req, res, next) {
         return;
     }
 
-    next();
+    res.status(404);
+    res.send('Please specify a valid `url` query parameter.');
 });
 
 /**
