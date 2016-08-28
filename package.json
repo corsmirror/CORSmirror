@@ -6,7 +6,8 @@
   "main": "bin/www",
   "scripts": {
     "start": "NODE_ENV=production node bin/www",
-    "test": "eslint .",
+    "test": "mocha",
+    "lint": "eslint .",
     "dev": "nodemon bin/www"
   },
   "keywords": [
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "eslint": "^3.4.0",
-    "nodemon": "^1.10.2"
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "supertest": "^2.0.0"
   },
   "license": "MIT"
 }
