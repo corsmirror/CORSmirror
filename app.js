@@ -20,6 +20,9 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// disable `X-Powered-By` header
+app.disable('x-powered-by');
+
 /**
  * Routes.
  */
