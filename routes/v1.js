@@ -28,8 +28,18 @@ router.all('/cors', function(req, res, next) {
                 return next(error);
             }
 
+            // exclude response CORS headers to prevent existing
+            // CORS headers from getting overridden
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+            var headers = {};
+            Object.keys(response.headers).forEach(function(header) {
+                if (header.indexOf('access-control-') !== 0) {
+                    headers[header] = response.headers[header];
+                }
+            });
+
             res.status(response.statusCode);
-            res.set(response.headers);
+            res.set(headers);
             res.send(body);
         });
 

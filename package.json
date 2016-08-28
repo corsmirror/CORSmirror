@@ -15,6 +15,7 @@
     "cors"
   ],
   "dependencies": {
+    "cors": "^2.8.0",
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",

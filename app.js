@@ -20,6 +20,9 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// enable CORS on all routes
+app.use(require('cors')());
+
 // disable `X-Powered-By` header
 app.disable('x-powered-by');
 
