@@ -8,6 +8,27 @@ Application is built with:
 - [cors](https://github.com/expressjs/cors)
 - [request](https://github.com/request/request)
 
+You can find the repository [here](https://github.com/CORSmirror/CORSmirror).
+
+## Development
+
+Feel free to fork and clone the [repository](https://github.com/CORSmirror/CORSmirror) and play around with the server. Contributions are welcome!
+
+### Installation
+
+```sh
+$ git clone https://github.com/CORSmirror/CORSmirror.git
+$ cd CORSmirror
+$ npm install
+```
+
+### Testing
+
+```sh
+$ npm test
+$ npm run lint
+```
+
 ## License
 
 [MIT](https://github.com/CORSmirror/CORSmirror/blob/master/LICENSE)
