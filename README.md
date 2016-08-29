@@ -10,6 +10,24 @@ Application is built with:
 
 You can find the repository [here](https://github.com/CORSmirror/CORSmirror).
 
+## Usage
+
+The RESTful API is as follows:
+```
+http://www.corsmirror.com/v1/cors?url=<url>
+```
+
+Thus, if you want to make a [jQuery AJAX request](http://api.jquery.com/jquery.ajax/) to `http://example.com`, you can do the following:
+```js
+var url = 'http://example.com';
+$.ajax({
+    method: 'GET',
+    url: 'http://www.corsmirror.com/v1/cors?url=' + url
+}).done(function(data) {
+    console.log(data);
+});
+```
+
 ## Development
 
 Feel free to fork and clone the [repository](https://github.com/CORSmirror/CORSmirror) and play around with the server. Contributions are welcome!
