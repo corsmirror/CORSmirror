@@ -1,8 +1,14 @@
-[![CORSmirror Logo](https://avatars2.githubusercontent.com/u/21297312?s=200)](http://www.corsmirror.com)
+<p align="center">
+    <a href="http://www.corsmirror.com">
+        <img src="https://avatars2.githubusercontent.com/u/21297312?s=300">
+    </a>
+</p>
 
-CORSmirror provides a mirror to websites with [Cross-Origin Resource Sharing (CORS)](https://www.maxcdn.com/one/visual-glossary/cors/) enabled.
+## What is CORSmirror?
 
-Application is built with:
+CORSmirror is a RESTful API that provides a mirror to websites with [CORS](https://www.maxcdn.com/one/visual-glossary/cors/) enabled.
+
+The web application is built with:
 - [Node.js](https://nodejs.org)
 - [Express](https://expressjs.com)
 - [cors](https://github.com/expressjs/cors)
