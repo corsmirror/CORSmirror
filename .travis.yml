@@ -16,5 +16,5 @@ cache:
     directories:
         - node_modules
 
-    notifications:
-        email: false
+notifications:
+    email: false
