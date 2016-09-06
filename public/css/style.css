@@ -18,5 +18,6 @@ li {
 
 pre,
 code {
+    background: #f8f8f8;
     overflow: auto;
 }
