@@ -1,0 +1,23 @@
+body {
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+a {
+    color: #00B7FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    margin-bottom: 0;
+}
+
+pre,
+code {
+    background: #f8f8f8;
+    overflow: auto;
+}
