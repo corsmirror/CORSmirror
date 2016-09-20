@@ -38,6 +38,14 @@ router.all('/cors', function(req, res, next) {
                 }
             });
 
+            // override header fields (if specified)
+            Object.keys(req.query).forEach(function(param) {
+                // do not set `url` in header field
+                if (param !== 'url') {
+                    headers[param.toLowerCase()] = req.query[param];
+                }
+            });
+
             res.status(response.statusCode);
             res.set(headers);
             res.send(body);
