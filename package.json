@@ -19,8 +19,11 @@
   },
   "keywords": [
     "corsmirror",
-    "cors mirror",
-    "cors"
+    "cors",
+    "mirror",
+    "request",
+    "response",
+    "headers"
   ],
   "dependencies": {
     "content-type": "^1.0.2",
