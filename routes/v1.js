@@ -5,6 +5,7 @@
  */
 var router = require('express').Router();
 var request = require('request');
+var contentType = require('content-type');
 
 /**
  * CORS mirror API.
@@ -13,7 +14,7 @@ var request = require('request');
 router.all('/cors', function(req, res, next) {
     var url = req.query.url;
     // non-overridable blacklist for HTTP header fields
-    var blacklist = /^(url)$/i;
+    var blacklist = /^(url)$/;
 
     // check query parameter `url`
     // Express will decode the encoded value
@@ -40,12 +41,30 @@ router.all('/cors', function(req, res, next) {
                 }
             });
 
-            // set or override header field(s) if specified
-            Object.keys(req.query).forEach(function(param) {
-                if (!blacklist.test(param)) {
-                    headers[param.toLowerCase()] = req.query[param];
+            // check for additional querystring fields
+            var fieldName;
+            var fieldValue;
+            for (fieldName in req.query) {
+                fieldValue = req.query[fieldName];
+                fieldName = fieldName.toLowerCase();
+
+                if (fieldValue && !blacklist.test(fieldName)) {
+                    // handle invalid "content-type"
+                    if (fieldName === 'content-type') {
+                        try {
+                            contentType.parse(fieldValue);
+                        // TypeError: invalid media type
+                        } catch (error) {
+                            res.status(500);
+                            res.send('Invalid "Content-Type" parameter.');
+                            return;
+                        }
+                    }
+
+                    // set or override header field
+                    headers[fieldName] = fieldValue;
                 }
-            });
+            }
 
             res.status(response.statusCode);
             res.set(headers);
