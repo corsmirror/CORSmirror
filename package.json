@@ -23,6 +23,7 @@
     "cors"
   ],
   "dependencies": {
+    "content-type": "^1.0.2",
     "cors": "^2.8.0",
     "debug": "^2.2.0",
     "express": "^4.14.0",
