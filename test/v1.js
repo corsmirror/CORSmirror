@@ -97,6 +97,72 @@ describe('v1 routes', function() {
             });
         });
 
+        // additional query parameters which can override response headers
+        describe('additional query parameters', function() {
+            it('sets an HTTP header field', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(200, 'OK');
+
+                agent
+                    .get('/v1/cors?url=' + url + '&x-foo=bar')
+                    .expect('x-foo', 'bar')
+                    .end(done);
+            });
+
+            it('does nothing for binary parameters', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(200, 'OK', { accept: 'text/plain' });
+
+                agent
+                    .get('/v1/cors?url=' + url + '&accept')
+                    .expect('accept', 'text/plain')
+                    .end(done);
+            });
+
+            it('overrides an HTTP header field', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(200, 'OK', { etag: 'foo' });
+
+                agent
+                    .get('/v1/cors?url=' + url + '&etag=bar')
+                    .expect('etag', 'bar')
+                    .end(done);
+            });
+
+            it('does not need to be case-sensitive', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(200, 'OK', { 'accept-encoding': 'gzip' });
+
+                agent
+                    .get('/v1/cors?url=' + url + '&Accept-Encoding=gzip,deflate')
+                    .expect('accept-encoding', 'gzip,deflate')
+                    .end(done);
+            });
+
+            it('throws an error if "content-type" is invalid', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(200, 'OK', { 'content-type': 'text/plain' });
+
+                agent
+                    .get('/v1/cors?url=' + url + '&content-type=application')
+                    .expect(500)
+                    .expect(function(res) {
+                        assert.equal(res.text, 'Invalid "Content-Type" parameter.');
+                    })
+                    .end(done);
+            });
+        });
+
         // sanity check to confirm that `request` lowercases the header field names
         describe('request', function() {
             it('should lowercase response headers', function(done) {
