@@ -12,6 +12,8 @@ var request = require('request');
  */
 router.all('/cors', function(req, res, next) {
     var url = req.query.url;
+    // non-overridable blacklist for HTTP header fields
+    var blacklist = /^(url)$/i;
 
     // check query parameter `url`
     // Express will decode the encoded value
@@ -38,10 +40,9 @@ router.all('/cors', function(req, res, next) {
                 }
             });
 
-            // override header fields (if specified)
+            // set or override header field(s) if specified
             Object.keys(req.query).forEach(function(param) {
-                // do not set `url` in header field
-                if (param !== 'url') {
+                if (!blacklist.test(param)) {
                     headers[param.toLowerCase()] = req.query[param];
                 }
             });
