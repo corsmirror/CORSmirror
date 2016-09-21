@@ -38,9 +38,20 @@ describe('v1 routes', function() {
                     .end(done);
             });
 
+            it('responds with matching status code', function(done) {
+                var url = 'http://foo.bar';
+                nock(url)
+                    .get('/')
+                    .reply(301);
+
+                agent
+                    .get('/v1/cors?url=' + url)
+                    .expect(301)
+                    .end(done);
+            });
+
             it('responds with content and CORS headers if query is valid', function(done) {
                 var url = 'http://foo.bar';
-
                 nock(url)
                     .get('/')
                     .reply(200, 'OK');
