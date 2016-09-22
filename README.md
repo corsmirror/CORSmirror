@@ -34,6 +34,20 @@ $.ajax({
 });
 ```
 
+You can pass additional query strings that sets or overrides the [response header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields):
+
+```js
+$.get(
+    'http://www.corsmirror.com/v1/cors' +
+    '?url=http://example.com' +
+    '&content-type=text/plain'
+).done(function(data, status, xhr) {
+    console.log(xhr.getResponseHeader('content-type'));
+});
+```
+
+_Note:_ There are certain fields like `Content-Length` that cannot be overridden.
+
 ## Development
 
 Feel free to fork and clone the [repository](https://github.com/CORSmirror/CORSmirror) and play around with the server. Contributions are welcome!
