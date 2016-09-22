@@ -1,6 +1,6 @@
 {
   "name": "corsmirror",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mirror sites with CORS enabled.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "bin/www",
@@ -19,19 +19,22 @@
   },
   "keywords": [
     "corsmirror",
-    "cors mirror",
-    "cors"
+    "cors",
+    "mirror",
+    "request",
+    "response",
+    "headers"
   ],
   "dependencies": {
-    "content-type": "^1.0.2",
-    "cors": "^2.8.0",
-    "debug": "^2.2.0",
-    "express": "^4.14.0",
-    "hbs": "^4.0.0",
-    "highlight.js": "^9.6.0",
-    "marked": "^0.3.6",
-    "morgan": "^1.7.0",
-    "request": "^2.74.0"
+    "content-type": "1.0.2",
+    "cors": "2.8.0",
+    "debug": "2.2.0",
+    "express": "4.14.0",
+    "hbs": "4.0.0",
+    "highlight.js": "9.6.0",
+    "marked": "0.3.6",
+    "morgan": "1.7.0",
+    "request": "2.74.0"
   },
   "devDependencies": {
     "eslint": "^3.4.0",
