@@ -1,6 +1,6 @@
 {
   "name": "corsmirror",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mirror sites with CORS enabled.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "bin/www",
