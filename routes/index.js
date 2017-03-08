@@ -31,7 +31,8 @@ var readmeHTML = marked(readmeMD);
 router.get('/', function(req, res, next) {
     res.render('index', {
         title: 'CORSmirror',
-        readme: readmeHTML
+        readme: readmeHTML,
+        gaId: process.env.GOOGLE_ANALYTICS_ID
     });
 });
 
