@@ -1,6 +1,6 @@
 {
   "name": "corsmirror",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Mirror sites with CORS enabled.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "bin/www",
@@ -43,5 +43,6 @@
     "nodemon": "1.11.0",
     "supertest": "3.0.0"
   },
+  "private": true,
   "license": "MIT"
 }
