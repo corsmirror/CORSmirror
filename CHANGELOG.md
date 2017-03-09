@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.4](https://github.com/CORSmirror/CORSmirror/compare/v0.0.3...v0.0.4) - 2017-03-08
+### Added
+- Create `CHANGELOG.md` (#7)
+- Create `.npmrc` and set `save-exact` to true (#8)
+
+### Changed
+- Upgrade package dependencies (#8)
+- Make package private (#9)
+
 ## [0.0.3](https://github.com/CORSmirror/CORSmirror/compare/v0.0.2...v0.0.3) - 2016-09-21
 ### Added
 - Allow header fields to be set or overridden by query params (#5)
