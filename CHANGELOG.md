@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.3](https://github.com/CORSmirror/CORSmirror/compare/v0.0.2...v0.0.3) - 2016-09-21
+### Added
+- Allow header fields to be set or overridden by query params (#5)
+  - However, keep non-overridable HTTP headers in a blacklist (currently it's just `url`)
+- Validate content-type with [content-type](https://www.npmjs.com/package/content-type) (#5)
+  - Respond with 500 error if content-type is invalid
+
+### Changed
+- Improve `README.md` and add header override example (#5, #6)
+- In `package.json`, use exact versions of dependencies and improve keywords (#6)
+- During development, have nodemon watch `README.md` (#6)
+
 ## [0.0.2](https://github.com/CORSmirror/CORSmirror/compare/v0.0.1...v0.0.2) - 2016-09-05
 ### Added
 - Render HTML version of `README.md` on homepage (#2)
