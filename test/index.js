@@ -54,4 +54,19 @@ describe('default routes', function() {
         });
     });
 
+    describe('heartbeat', function() {
+        it('responds with 200 OK', function(done) {
+            agent
+                .get('/heartbeat')
+                .expect(200)
+                .expect(function(res) {
+                    assert.deepEqual(res.body, {
+                        status: 200,
+                        message: 'OK'
+                    });
+                })
+                .end(done);
+        });
+    });
+
 });

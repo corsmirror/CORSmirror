@@ -32,6 +32,12 @@ app.disable('x-powered-by');
  */
 app.use('/', require('./routes/index'));
 app.use('/v1', require('./routes/v1'));
+app.get('/heartbeat', function(req, res, next) {
+    res.status(200).json({
+        status: 200,
+        message: 'OK'
+    });
+});
 
 /**
  * Catch 404 and forward to error handler.
