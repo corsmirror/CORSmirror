@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.0.5](https://github.com/CORSmirror/CORSmirror/compare/v0.0.4...v0.0.5) - 2017-03-14
+### Added
+- Use [dotenv](https://www.npmjs.com/package/dotenv) to load Google Analytics ID as an environment variable (#10)
+- Create `/heartbeat` route that responds with 200 OK (#11)
+
+### Changed
+- Update layout template to render Google Analytics if ID is present (#10)
+
 ## [0.0.4](https://github.com/CORSmirror/CORSmirror/compare/v0.0.3...v0.0.4) - 2017-03-08
 ### Added
 - Create `CHANGELOG.md` (#7)
