@@ -1,12 +1,12 @@
 <p align="center">
-    <a href="http://www.corsmirror.com">
-        <img src="https://avatars2.githubusercontent.com/u/21297312?s=300">
-    </a>
+  <a href="https://corsmirror.herokuapp.com">
+    <img src="https://avatars2.githubusercontent.com/u/21297312?s=300">
+  </a>
 </p>
 
 ## What is CORSmirror?
 
-CORSmirror is a RESTful API that provides a mirror to websites with [CORS](https://www.maxcdn.com/one/visual-glossary/cors/) enabled.
+CORSmirror is a RESTful API that provides a proxy to websites with [CORS](https://www.maxcdn.com/one/visual-glossary/cors/) enabled.
 
 The web service is built with:
 - [Node.js](https://nodejs.org)
@@ -19,32 +19,29 @@ For more information, check out the [repository](https://github.com/CORSmirror/C
 ## Usage
 
 The RESTful API is as follows:
-
 ```
-http://www.corsmirror.com/v1/cors?url=<url>
+https://corsmirror.herokuapp.com/v1/cors?url=<url>
 ```
 
 Thus, if you want to make a [jQuery AJAX request](http://api.jquery.com/jquery.ajax/) to `http://example.com`, you can do the following:
-
 ```js
 var url = 'http://example.com';
 $.ajax({
-    method: 'GET',
-    url: 'http://www.corsmirror.com/v1/cors?url=' + url
+  method: 'GET',
+  url: 'https://corsmirror.herokuapp.com/v1/cors?url=' + url
 }).done(function(data) {
-    console.log(data);
+  console.log(data);
 });
 ```
 
-You can pass additional query strings that sets or overrides the [response header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields):
-
+You can pass additional query strings that sets or overrides the [response header fields](https://wikipedia.org/wiki/List_of_HTTP_header_fields):
 ```js
 $.get(
-    'http://www.corsmirror.com/v1/cors' +
-    '?url=http://example.com' +
-    '&content-type=text/plain'
+  'https://corsmirror.herokuapp.com/v1/cors' +
+  '?url=http://example.com' +
+  '&content-type=text/plain'
 ).done(function(data, status, xhr) {
-    console.log(xhr.getResponseHeader('content-type'));
+  console.log(xhr.getResponseHeader('content-type'));
 });
 ```
 
