@@ -28,7 +28,7 @@ var readmeHTML = marked(readmeMD);
 /**
  * GET home page.
  */
-router.get('/', function(req, res, next) {
+router.get('/', function onIndexRoute(req, res, next) {
     res.render('index', {
         title: 'CORSmirror',
         readme: readmeHTML,

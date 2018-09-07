@@ -11,7 +11,7 @@ var contentType = require('content-type');
  * CORS mirror API.
  * Route supports all HTTP verbs.
  */
-router.all('/cors', function(req, res, next) {
+router.all('/cors', function onCorsRoute(req, res, next) {
     var url = req.query.url;
     // non-overridable blacklist for HTTP header fields
     var blacklist = /^(url)$/;
