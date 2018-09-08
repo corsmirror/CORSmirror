@@ -1,7 +1,6 @@
 {
   "name": "corsmirror",
   "version": "0.0.5",
-  "description": "Mirror sites with CORS enabled.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "bin/www",
   "scripts": {
@@ -10,21 +9,6 @@
     "lint": "eslint .",
     "dev": "nodemon bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CORSmirror/CORSmirror"
-  },
-  "bugs": {
-    "url": "https://github.com/CORSmirror/CORSmirror/issues"
-  },
-  "keywords": [
-    "corsmirror",
-    "cors",
-    "mirror",
-    "request",
-    "response",
-    "headers"
-  ],
   "dependencies": {
     "content-type": "1.0.4",
     "cors": "2.8.4",
@@ -43,6 +27,10 @@
     "nock": "9.1.5",
     "nodemon": "1.14.7",
     "supertest": "3.0.0"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">5.3"
   },
   "private": true,
   "license": "MIT"
