@@ -1,9 +1,9 @@
-var cors = require('cors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
+const cors = require('cors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
 
-var app = express();
+const app = express();
 
 /**
  * View engine.
@@ -40,7 +40,7 @@ app.get('/heartbeat', function (req, res) {
  * Catch 404 and forward to error handler.
  */
 app.use(function onNotFoundRoute(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

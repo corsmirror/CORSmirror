@@ -1,9 +1,9 @@
-var assert = require('assert');
-var supertest = require('supertest');
-var nock = require('nock');
-var request = require('request');
-var app = require('../app');
-var agent = supertest.agent(app);
+const assert = require('assert');
+const supertest = require('supertest');
+const nock = require('nock');
+const request = require('request');
+const app = require('../app');
+const agent = supertest.agent(app);
 
 /**
  * `/v1` routes.
@@ -35,7 +35,7 @@ describe('v1 routes', function () {
       });
 
       it('responds with matching status code', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(301);
 
         agent
@@ -45,7 +45,7 @@ describe('v1 routes', function () {
       });
 
       it('responds with content and CORS headers if query is valid', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK');
 
         agent
@@ -60,8 +60,8 @@ describe('v1 routes', function () {
 
       // make sure the response headers do not override Express CORS headers
       it('removes response CORS headers if present', function (done) {
-        var url = 'http://foo.bar';
-        var headers = {
+        const url = 'http://foo.bar';
+        const headers = {
           'Access-Control-Allow-Origin': 'http://foo.bar',
           'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
           'Access-Control-Allow-Headers': 'X-PINGOTHER, Content-Type',
@@ -69,7 +69,7 @@ describe('v1 routes', function () {
           // make sure other header fields are kept
           'Content-Type': 'application/json',
         };
-        var body = {
+        const body = {
           foo: 'bar',
         };
 
@@ -90,7 +90,7 @@ describe('v1 routes', function () {
     // additional query parameters which can override response headers
     describe('additional query parameters', function () {
       it('sets an HTTP header field', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK');
 
         agent
@@ -100,7 +100,7 @@ describe('v1 routes', function () {
       });
 
       it('does nothing for binary parameters', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { accept: 'text/plain' });
 
         agent
@@ -110,7 +110,7 @@ describe('v1 routes', function () {
       });
 
       it('overrides an HTTP header field', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { etag: 'foo' });
 
         agent
@@ -120,7 +120,7 @@ describe('v1 routes', function () {
       });
 
       it('does not need to be case-sensitive', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { 'accept-encoding': 'gzip' });
 
         agent
@@ -130,7 +130,7 @@ describe('v1 routes', function () {
       });
 
       it('throws an error if "content-type" is invalid', function (done) {
-        var url = 'http://foo.bar';
+        const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { 'content-type': 'text/plain' });
 
         agent
@@ -146,7 +146,7 @@ describe('v1 routes', function () {
     // sanity check to confirm that `request` lowercases the header field names
     describe('request', function () {
       it('should lowercase response headers', function (done) {
-        var url = 'http://response-headers.test';
+        const url = 'http://response-headers.test';
 
         nock(url).get('/').reply(200, 'OK', { 'X-Foo-Header': 'foo' });
 

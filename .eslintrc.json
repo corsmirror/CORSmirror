@@ -4,6 +4,9 @@
     "mocha": true
   },
   "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"

@@ -1,12 +1,7 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
-var assert = require('assert');
-var supertest = require('supertest');
-var app = require('../app');
-var agent = supertest.agent(app);
+const assert = require('assert');
+const supertest = require('supertest');
+const app = require('../app');
+const agent = supertest.agent(app);
 
 /**
  * Default routes.
@@ -29,7 +24,7 @@ describe('default routes', function () {
     });
 
     it('renders Google Analytics if ID is present', function (done) {
-      var gaId = 'UA-00000000-0';
+      const gaId = 'UA-00000000-0';
       process.env.GOOGLE_ANALYTICS_ID = gaId;
       agent
         .get('/')

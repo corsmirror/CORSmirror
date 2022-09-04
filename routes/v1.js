@@ -1,20 +1,20 @@
-var router = require('express').Router();
-var request = require('request');
-var contentType = require('content-type');
+const router = require('express').Router();
+const request = require('request');
+const contentType = require('content-type');
 
 /**
  * CORS mirror API.
  * Route supports all HTTP verbs.
  */
-router.all('/cors', function onCorsRoute(req, res) {
-  var url = req.query.url;
+module.exports = router.all('/cors', function onCorsRoute(req, res) {
+  const url = req.query.url;
   // non-overridable blacklist for HTTP header fields
-  var blacklist = /^(url)$/;
+  const blacklist = /^(url)$/;
 
   // check query parameter `url`
   // Express will decode the encoded value
   if (url) {
-    var options = {
+    const options = {
       method: req.method,
       url: url,
     };
@@ -29,7 +29,7 @@ router.all('/cors', function onCorsRoute(req, res) {
       // exclude response CORS headers to prevent existing
       // CORS headers from getting overridden
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
-      var headers = {};
+      const headers = {};
       Object.keys(response.headers).forEach(function (header) {
         if (header.indexOf('access-control-') !== 0) {
           headers[header] = response.headers[header];
@@ -37,8 +37,9 @@ router.all('/cors', function onCorsRoute(req, res) {
       });
 
       // check for additional querystring fields
-      var fieldName;
-      var fieldValue;
+      let fieldName;
+      let fieldValue;
+
       for (fieldName in req.query) {
         fieldValue = req.query[fieldName];
         fieldName = fieldName.toLowerCase();
@@ -74,8 +75,3 @@ router.all('/cors', function onCorsRoute(req, res) {
   res.status(404);
   res.send('Please specify a valid `url` query parameter.');
 });
-
-/**
- * Export router.
- */
-module.exports = router;

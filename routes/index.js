@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var fs = require('fs');
-var path = require('path');
-var marked = require('marked');
-var highlight = require('highlight.js');
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
+const path = require('path');
+const marked = require('marked');
+const highlight = require('highlight.js');
 
 // highlight markdown code blocks
 // https://github.com/chjj/marked#highlight
@@ -17,8 +17,8 @@ marked.setOptions({
 });
 
 // convert README from markdown to HTML
-var readmeMD = fs.readFileSync(path.join(__dirname, '../README.md'), 'utf8');
-var readmeHTML = marked(readmeMD);
+const readmeMD = fs.readFileSync(path.join(__dirname, '../README.md'), 'utf8');
+const readmeHTML = marked(readmeMD);
 
 /**
  * GET home page.
