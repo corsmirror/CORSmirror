@@ -1,14 +1,8 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
 var cors = require('cors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 
-// express app
 var app = express();
 
 /**
@@ -35,20 +29,20 @@ app.disable('x-powered-by');
  */
 app.use('/', require('./routes/index'));
 app.use('/v1', require('./routes/v1'));
-app.get('/heartbeat', function(req, res, next) {
-    res.status(200).json({
-        status: 200,
-        message: 'OK'
-    });
+app.get('/heartbeat', function (req, res) {
+  res.status(200).json({
+    status: 200,
+    message: 'OK',
+  });
 });
 
 /**
  * Catch 404 and forward to error handler.
  */
 app.use(function onNotFoundRoute(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 /**
@@ -56,25 +50,25 @@ app.use(function onNotFoundRoute(req, res, next) {
  * Stacktrace will be printed.
  */
 if (app.get('env') === 'development') {
-    app.use(function onErrorHandler(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+  app.use(function onErrorHandler(err, req, res) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err,
     });
+  });
 }
 
 /**
  * Production error handler.
  * Stacktrace will not be leaked.
  */
-app.use(function onErrorHandler(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+app.use(function onErrorHandler(err, req, res) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {},
+  });
 });
 
 /**

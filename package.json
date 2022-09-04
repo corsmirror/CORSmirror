@@ -7,6 +7,7 @@
     "start": "NODE_ENV=production node bin/www",
     "test": "mocha",
     "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
     "dev": "nodemon bin/www"
   },
   "dependencies": {
@@ -22,10 +23,12 @@
     "request": "2.83.0"
   },
   "devDependencies": {
-    "eslint": "4.14.0",
+    "eslint": "8.23.0",
+    "eslint-plugin-prettier": "4.2.1",
     "mocha": "4.1.0",
     "nock": "9.1.5",
     "nodemon": "1.14.7",
+    "prettier": "2.7.1",
     "supertest": "3.0.0"
   },
   "engines": {
