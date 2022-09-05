@@ -6,7 +6,7 @@ const contentType = require('content-type');
  * CORS mirror API.
  * Route supports all HTTP verbs.
  */
-module.exports = router.all('/cors', function onCorsRoute(req, res) {
+module.exports = router.all('/cors', (req, res) => {
   const url = req.query.url;
   // non-overridable blacklist for HTTP header fields
   const blacklist = /^(url)$/;
@@ -21,7 +21,7 @@ module.exports = router.all('/cors', function onCorsRoute(req, res) {
 
     // make a request to the url
     // and respond with the status, headers, and body
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       if (error) {
         return res.status(500).send(error.message);
       }
@@ -30,7 +30,7 @@ module.exports = router.all('/cors', function onCorsRoute(req, res) {
       // CORS headers from getting overridden
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
       const headers = {};
-      Object.keys(response.headers).forEach(function (header) {
+      Object.keys(response.headers).forEach((header) => {
         if (header.indexOf('access-control-') !== 0) {
           headers[header] = response.headers[header];
         }

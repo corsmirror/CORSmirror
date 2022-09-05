@@ -8,14 +8,14 @@ const agent = supertest.agent(app);
 /**
  * `/v1` routes.
  */
-describe('v1 routes', function () {
-  describe('cors', function () {
-    describe('`url` query parameter', function () {
-      it('responds with 404 if query is not found', function (done) {
+describe('v1 routes', () => {
+  describe('cors', () => {
+    describe('`url` query parameter', () => {
+      it('responds with 404 if query is not found', (done) => {
         agent
           .get('/v1/cors')
           .expect(404)
-          .expect(function (res) {
+          .expect((res) => {
             assert.equal(
               res.text,
               'Please specify a valid `url` query parameter.'
@@ -24,17 +24,17 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('responds with 500 if query is invalid', function (done) {
+      it('responds with 500 if query is invalid', (done) => {
         agent
           .get('/v1/cors?url=invalid')
           .expect(500)
-          .expect(function (res) {
+          .expect((res) => {
             assert.equal(res.text, 'Invalid URI "invalid"');
           })
           .end(done);
       });
 
-      it('responds with matching status code', function (done) {
+      it('responds with matching status code', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(301);
 
@@ -44,7 +44,7 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('responds with content and CORS headers if query is valid', function (done) {
+      it('responds with content and CORS headers if query is valid', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK');
 
@@ -52,14 +52,14 @@ describe('v1 routes', function () {
           .get('/v1/cors?url=' + url)
           .expect(200)
           .expect('Access-Control-Allow-Origin', '*')
-          .expect(function (res) {
+          .expect((res) => {
             assert.equal(res.text, 'OK');
           })
           .end(done);
       });
 
       // make sure the response headers do not override Express CORS headers
-      it('removes response CORS headers if present', function (done) {
+      it('removes response CORS headers if present', (done) => {
         const url = 'http://foo.bar';
         const headers = {
           'Access-Control-Allow-Origin': 'http://foo.bar',
@@ -80,7 +80,7 @@ describe('v1 routes', function () {
           .expect(200)
           .expect('Access-Control-Allow-Origin', '*')
           .expect('Content-Type', /json/)
-          .expect(function (res) {
+          .expect((res) => {
             assert.deepEqual(res.body, body);
           })
           .end(done);
@@ -88,8 +88,8 @@ describe('v1 routes', function () {
     });
 
     // additional query parameters which can override response headers
-    describe('additional query parameters', function () {
-      it('sets an HTTP header field', function (done) {
+    describe('additional query parameters', () => {
+      it('sets an HTTP header field', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK');
 
@@ -99,7 +99,7 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('does nothing for binary parameters', function (done) {
+      it('does nothing for binary parameters', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { accept: 'text/plain' });
 
@@ -109,7 +109,7 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('overrides an HTTP header field', function (done) {
+      it('overrides an HTTP header field', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { etag: 'foo' });
 
@@ -119,7 +119,7 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('does not need to be case-sensitive', function (done) {
+      it('does not need to be case-sensitive', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { 'accept-encoding': 'gzip' });
 
@@ -129,14 +129,14 @@ describe('v1 routes', function () {
           .end(done);
       });
 
-      it('throws an error if "content-type" is invalid', function (done) {
+      it('throws an error if "content-type" is invalid', (done) => {
         const url = 'http://foo.bar';
         nock(url).get('/').reply(200, 'OK', { 'content-type': 'text/plain' });
 
         agent
           .get('/v1/cors?url=' + url + '&content-type=application')
           .expect(500)
-          .expect(function (res) {
+          .expect((res) => {
             assert.equal(res.text, 'Invalid "Content-Type" parameter.');
           })
           .end(done);
@@ -144,13 +144,13 @@ describe('v1 routes', function () {
     });
 
     // sanity check to confirm that `request` lowercases the header field names
-    describe('request', function () {
-      it('should lowercase response headers', function (done) {
+    describe('request', () => {
+      it('should lowercase response headers', (done) => {
         const url = 'http://response-headers.test';
 
         nock(url).get('/').reply(200, 'OK', { 'X-Foo-Header': 'foo' });
 
-        request(url, function (error, response) {
+        request(url, (error, response) => {
           assert.deepEqual(response.headers, {
             'x-foo-header': 'foo',
           });

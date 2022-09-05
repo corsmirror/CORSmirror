@@ -17,11 +17,7 @@ app.engine('html', require('hbs').__express);
  */
 app.use(logger('dev'));
 app.use(express.static(path.resolve(__dirname, 'public')));
-
-// enable CORS on all routes
 app.use(cors());
-
-// disable `X-Powered-By` header
 app.disable('x-powered-by');
 
 /**
@@ -29,8 +25,8 @@ app.disable('x-powered-by');
  */
 app.use('/', require('./routes/index'));
 app.use('/v1', require('./routes/v1'));
-app.get('/heartbeat', function (req, res) {
-  res.status(200).json({
+app.get('/heartbeat', (request, response) => {
+  response.status(200).json({
     status: 200,
     message: 'OK',
   });
@@ -39,10 +35,10 @@ app.get('/heartbeat', function (req, res) {
 /**
  * Catch 404 and forward to error handler.
  */
-app.use(function onNotFoundRoute(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use((request, response, next) => {
+  const error = new Error('Not Found');
+  error.status = 404;
+  next(error);
 });
 
 /**
@@ -50,11 +46,11 @@ app.use(function onNotFoundRoute(req, res, next) {
  * Stacktrace will be printed.
  */
 if (app.get('env') === 'development') {
-  app.use(function onErrorHandler(err, req, res) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err,
+  app.use((error, request, response) => {
+    response.status(error.status || 500);
+    response.render('error', {
+      message: error.message,
+      error,
     });
   });
 }
@@ -63,15 +59,12 @@ if (app.get('env') === 'development') {
  * Production error handler.
  * Stacktrace will not be leaked.
  */
-app.use(function onErrorHandler(err, req, res) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
+app.use((error, request, response) => {
+  response.status(error.status || 500);
+  response.render('error', {
+    message: error.message,
     error: {},
   });
 });
 
-/**
- * Export app.
- */
 module.exports = app;

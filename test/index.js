@@ -6,31 +6,31 @@ const agent = supertest.agent(app);
 /**
  * Default routes.
  */
-describe('default routes', function () {
-  describe('home page', function () {
-    afterEach(function () {
+describe('default routes', () => {
+  describe('home page', () => {
+    afterEach(() => {
       delete process.env.GOOGLE_ANALYTICS_ID;
     });
 
-    it('responds with 200 and html', function (done) {
+    it('responds with 200 and html', (done) => {
       agent
         .get('/')
         .expect(200)
         .expect('Content-Type', /html/)
-        .expect(function (res) {
+        .expect((res) => {
           assert(!/google-analytics/.test(res.text));
         })
         .end(done);
     });
 
-    it('renders Google Analytics if ID is present', function (done) {
+    it('renders Google Analytics if ID is present', (done) => {
       const gaId = 'UA-00000000-0';
       process.env.GOOGLE_ANALYTICS_ID = gaId;
       agent
         .get('/')
         .expect(200)
         .expect('Content-Type', /html/)
-        .expect(function (res) {
+        .expect((res) => {
           assert(/google-analytics/.test(res.text));
           assert(new RegExp(gaId).test(res.text));
         })
@@ -38,18 +38,18 @@ describe('default routes', function () {
     });
   });
 
-  describe('error page', function () {
-    it('responds with 404 and html', function (done) {
+  describe('error page', () => {
+    it('responds with 404 and html', (done) => {
       agent.get('/404').expect(404).expect('Content-Type', /html/).end(done);
     });
   });
 
-  describe('heartbeat', function () {
-    it('responds with 200 OK', function (done) {
+  describe('heartbeat', () => {
+    it('responds with 200 OK', (done) => {
       agent
         .get('/heartbeat')
         .expect(200)
-        .expect(function (res) {
+        .expect((res) => {
           assert.deepEqual(res.body, {
             status: 200,
             message: 'OK',
