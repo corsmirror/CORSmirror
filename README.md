@@ -32,7 +32,7 @@ const url = 'http://example.com';
 $.ajax({
   method: 'GET',
   url: 'https://corsmirror.herokuapp.com/v1/cors?url=' + url,
-}).done(function (data) {
+}).done((data) => {
   console.log(data);
 });
 ```
@@ -44,7 +44,7 @@ $.get(
   'https://corsmirror.herokuapp.com/v1/cors' +
     '?url=http://example.com' +
     '&content-type=text/plain'
-).done(function (data, status, xhr) {
+).done((data, status, xhr) => {
   console.log(xhr.getResponseHeader('content-type'));
 });
 ```
