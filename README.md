@@ -6,7 +6,7 @@
 
 ## What is CORSmirror?
 
-CORSmirror is a RESTful API that provides a proxy to websites with [CORS](https://www.maxcdn.com/one/visual-glossary/cors/) enabled.
+CORSmirror is a RESTful API that provides a proxy to websites with [CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS) enabled.
 
 The web service is built with:
 
