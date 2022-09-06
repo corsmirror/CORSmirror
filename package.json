@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "content-type": "1.0.4",
-    "cors": "2.8.4",
+    "cors": "2.8.5",
     "debug": "4.3.4",
     "dotenv": "16.0.2",
-    "express": "4.16.2",
-    "hbs": "4.0.1",
+    "express": "4.18.1",
+    "hbs": "4.2.0",
     "highlight.js": "11.6.0",
     "marked": "4.1.0",
-    "morgan": "1.9.0",
+    "morgan": "1.10.0",
     "request": "2.83.0"
   },
   "devDependencies": {
