@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.0.0](https://github.com/CORSmirror/CORSmirror/compare/v0.0.5...v1.0.0) (2022-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* set minimum Node.js version to 18
+
+### Features
+
+* rename /heartbeat to /healthcheck and modularize routes & tests ([dbf7dc1](https://github.com/CORSmirror/CORSmirror/commit/dbf7dc1c7f8a8a9e24227da8387ba8ec0d4acc95))
+
+
+### Build System
+
+* add .nvmrc and set node to 18 and npm to 8.6 in package.json ([cf7e8d7](https://github.com/CORSmirror/CORSmirror/commit/cf7e8d7325e3d60f7d1332abc0596ba3dd4fd56e))
+
 ## [0.0.5](https://github.com/CORSmirror/CORSmirror/compare/v0.0.4...v0.0.5) - 2017-03-14
 ### Added
 - Use [dotenv](https://www.npmjs.com/package/dotenv) to load Google Analytics ID as an environment variable (#10)
