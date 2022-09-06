@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const marked = require('marked');
@@ -24,14 +23,14 @@ const readmeMarkdown = fs.readFileSync(
 const readmeHTML = marked(readmeMarkdown);
 
 /**
- * GET home page.
+ * GET /
+ *
+ * Returns homepage.
  */
-router.get('/', (request, response) => {
+module.exports = router.get('/', (request, response) => {
   response.render('index', {
     title: 'CORSmirror',
     readme: readmeHTML,
     gaId: process.env.GOOGLE_ANALYTICS_ID,
   });
 });
-
-module.exports = router;

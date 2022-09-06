@@ -3,6 +3,8 @@ const request = require('request');
 const contentType = require('content-type');
 
 /**
+ * GET /v1/cors
+ *
  * CORS mirror API.
  * Route supports all HTTP verbs.
  */

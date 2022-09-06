@@ -23,14 +23,9 @@ app.disable('x-powered-by');
 /**
  * Routes.
  */
-app.use('/', require('./routes/index'));
 app.use('/v1', require('./routes/v1'));
-app.get('/heartbeat', (request, response) => {
-  response.status(200).json({
-    status: 200,
-    message: 'OK',
-  });
-});
+app.use(require('./routes/healthcheck'));
+app.use(require('./routes/index'));
 
 /**
  * Catch 404 and forward to error handler.
