@@ -27,7 +27,7 @@ https://corsmirror.herokuapp.com/v1/cors?url=<url>
 
 Thus, if you want to make a [jQuery AJAX request](http://api.jquery.com/jquery.ajax/) to `http://example.com`, you can do the following:
 
-```js
+```javascript
 const url = 'http://example.com';
 $.ajax({
   method: 'GET',
@@ -39,7 +39,7 @@ $.ajax({
 
 You can pass additional query strings that sets or overrides the [response header fields](https://wikipedia.org/wiki/List_of_HTTP_header_fields):
 
-```js
+```javascript
 $.get(
   'https://corsmirror.herokuapp.com/v1/cors' +
     '?url=http://example.com' +
@@ -57,24 +57,24 @@ This is an open-source project so feel free to fork the [repository](https://git
 
 Contributions are welcome!
 
-#### Installation
+### Installation
 
-```sh
+```bash
 git clone https://github.com/CORSmirror/CORSmirror.git
 cd CORSmirror
 npm install
 ```
 
-#### Run
+### Run
 
-```sh
+```bash
 npm run dev # development
 npm start   # production
 ```
 
-#### Testing
+### Testing
 
-```sh
+```bash
 npm test
 npm run lint
 ```
