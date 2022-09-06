@@ -1,14 +1,9 @@
 {
-    "ignore": [
-        "*.swp",
-        "*.log"
-    ],
-    "watch": [
-        "README.md"
-    ],
-    "verbose": false,
-    "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "corsmirror:*"
-    }
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "corsmirror:*"
+  },
+  "ignore": ["*.swp", "*.log", "*.test.js"],
+  "verbose": false,
+  "watch": ["README.md", "bin", "routes", "views", "app.js"]
 }
