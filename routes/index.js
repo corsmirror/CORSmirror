@@ -1,15 +1,14 @@
 const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
-const marked = require('marked');
+const { marked } = require('marked');
 const highlight = require('highlight.js');
 
 // highlight markdown code blocks
 // https://github.com/chjj/marked#highlight
 marked.setOptions({
   highlight: (code, language) => {
-    // do not highlight `sh` and unspecified languages
-    if (!/sh|^undefined$/.test(language)) {
+    if (language) {
       return highlight.highlightAuto(code).value;
     }
   },
