@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://corsmirror.herokuapp.com">
+  <a href="https://corsmirror.onrender.com">
     <img src="https://github.com/CORSmirror.png?s=300">
   </a>
 </p>
@@ -22,31 +22,25 @@ For more information, check out the [repository](https://github.com/CORSmirror/C
 The RESTful API is as follows:
 
 ```
-https://corsmirror.herokuapp.com/v1/cors?url=<url>
+https://corsmirror.onrender.com/v1/cors?url=<url>
 ```
 
-Thus, if you want to make a [jQuery AJAX request](http://api.jquery.com/jquery.ajax/) to `http://example.com`, you can do the following:
+So if you want to [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) [https://example.com](https://example.com), you can:
 
 ```javascript
-const url = 'http://example.com';
-$.ajax({
-  method: 'GET',
-  url: 'https://corsmirror.herokuapp.com/v1/cors?url=' + url,
-}).done((data) => {
-  console.log(data);
-});
+fetch('https://corsmirror.onrender.com/v1/cors?url=https://example.com')
+  .then((response) => response.text())
+  .then((data) => console.log(data));
 ```
 
 You can pass additional query strings that sets or overrides the [response header fields](https://wikipedia.org/wiki/List_of_HTTP_header_fields):
 
 ```javascript
-$.get(
-  'https://corsmirror.herokuapp.com/v1/cors' +
-    '?url=http://example.com' +
-    '&content-type=text/plain'
-).done((data, status, xhr) => {
-  console.log(xhr.getResponseHeader('content-type'));
-});
+fetch(
+  'https://corsmirror.onrender.com/v1/cors?url=https://example.com&content-type=text/plain'
+)
+  .then((response) => response.headers.get('content-type'))
+  .then((data) => console.log(data));
 ```
 
 > There are certain fields like `Content-Length` that cannot be overridden.
