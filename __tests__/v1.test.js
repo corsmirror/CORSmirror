@@ -1,13 +1,10 @@
-const assert = require('assert');
 const supertest = require('supertest');
 const nock = require('nock');
 const request = require('request');
 const app = require('../app');
+
 const agent = supertest.agent(app);
 
-/**
- * `/v1` routes.
- */
 describe('v1 routes', () => {
   describe('cors', () => {
     describe('`url` query parameter', () => {
@@ -15,9 +12,8 @@ describe('v1 routes', () => {
         agent
           .get('/v1/cors')
           .expect(404)
-          .expect((res) => {
-            assert.equal(
-              res.text,
+          .expect((response) => {
+            expect(response.text).toBe(
               'Please specify a valid `url` query parameter.'
             );
           })
@@ -28,8 +24,8 @@ describe('v1 routes', () => {
         agent
           .get('/v1/cors?url=invalid')
           .expect(500)
-          .expect((res) => {
-            assert.equal(res.text, 'Invalid URI "invalid"');
+          .expect((response) => {
+            expect(response.text).toBe('Invalid URI "invalid"');
           })
           .end(done);
       });
@@ -52,8 +48,8 @@ describe('v1 routes', () => {
           .get('/v1/cors?url=' + url)
           .expect(200)
           .expect('Access-Control-Allow-Origin', '*')
-          .expect((res) => {
-            assert.equal(res.text, 'OK');
+          .expect((response) => {
+            expect(response.text).toBe('OK');
           })
           .end(done);
       });
@@ -80,8 +76,8 @@ describe('v1 routes', () => {
           .expect(200)
           .expect('Access-Control-Allow-Origin', '*')
           .expect('Content-Type', /json/)
-          .expect((res) => {
-            assert.deepEqual(res.body, body);
+          .expect((response) => {
+            expect(response.body).toEqual(body);
           })
           .end(done);
       });
@@ -136,8 +132,8 @@ describe('v1 routes', () => {
         agent
           .get('/v1/cors?url=' + url + '&content-type=application')
           .expect(500)
-          .expect((res) => {
-            assert.equal(res.text, 'Invalid "Content-Type" parameter.');
+          .expect((response) => {
+            expect(response.text).toBe('Invalid "Content-Type" parameter.');
           })
           .end(done);
       });
@@ -151,7 +147,7 @@ describe('v1 routes', () => {
         nock(url).get('/').reply(200, 'OK', { 'X-Foo-Header': 'foo' });
 
         request(url, (error, response) => {
-          assert.deepEqual(response.headers, {
+          expect(response.headers).toEqual({
             'x-foo-header': 'foo',
           });
           done();

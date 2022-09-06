@@ -1,40 +1,43 @@
-const assert = require('assert');
 const supertest = require('supertest');
 const app = require('../app');
+
 const agent = supertest.agent(app);
 
-/**
- * Default routes.
- */
 describe('default routes', () => {
   describe('home page', () => {
-    afterEach(() => {
-      delete process.env.GOOGLE_ANALYTICS_ID;
-    });
-
     it('responds with 200 and html', (done) => {
       agent
         .get('/')
         .expect(200)
         .expect('Content-Type', /html/)
-        .expect((res) => {
-          assert(!/google-analytics/.test(res.text));
+        .expect((response) => {
+          expect(response.text).not.toMatch('google-analytics');
         })
         .end(done);
     });
 
-    it('renders Google Analytics if ID is present', (done) => {
-      const gaId = 'UA-00000000-0';
-      process.env.GOOGLE_ANALYTICS_ID = gaId;
-      agent
-        .get('/')
-        .expect(200)
-        .expect('Content-Type', /html/)
-        .expect((res) => {
-          assert(/google-analytics/.test(res.text));
-          assert(new RegExp(gaId).test(res.text));
-        })
-        .end(done);
+    describe('Google Analytics', () => {
+      const googleAnalyticsId = 'UA-00000000-0';
+
+      beforeAll(() => {
+        process.env.GOOGLE_ANALYTICS_ID = googleAnalyticsId;
+      });
+
+      afterAll(() => {
+        delete process.env.GOOGLE_ANALYTICS_ID;
+      });
+
+      it('renders Google Analytics if ID is present', (done) => {
+        agent
+          .get('/')
+          .expect(200)
+          .expect('Content-Type', /html/)
+          .expect((response) => {
+            expect(response.text).toMatch('google-analytics');
+            expect(response.text).toMatch(googleAnalyticsId);
+          })
+          .end(done);
+      });
     });
   });
 
@@ -49,8 +52,8 @@ describe('default routes', () => {
       agent
         .get('/heartbeat')
         .expect(200)
-        .expect((res) => {
-          assert.deepEqual(res.body, {
+        .expect((response) => {
+          expect(response.body).toEqual({
             status: 200,
             message: 'OK',
           });

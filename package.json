@@ -6,8 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=production node bin/www",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "eslint . --fix",
     "dev": "nodemon bin/www"
   },
   "dependencies": {
