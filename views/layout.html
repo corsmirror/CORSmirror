@@ -1,31 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{{title}}</title>
-        <meta name="description" content="CORSmirror is a RESTful API that provides a mirror to websites with CORS enabled." />
-        <meta name="keywords" content="corsmirror,cors,mirror,request,rest,api,web,development" />
-        {{!-- Skeleton --}}
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-        {{!-- Highlight.js --}}
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css" />
-        {{!-- Custom Styles --}}
-        <link type="text/css" rel="stylesheet" href="/css/style.css" />
-    </head>
-    <body>
-        <div class="container">{{{body}}}</div>
-        {{!-- Google Analytics --}}
-        {{#if gaId}}
-            <script type="text/javascript">
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', '{{gaId}}', 'auto');
-                ga('send', 'pageview');
-            </script>
-        {{/if}}
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff" />
+    <title>{{title}}</title>
+    <meta
+      name="description"
+      content="CORSmirror is a RESTful API that provides a mirror to websites with CORS enabled."
+    />
+    <meta
+      name="keywords"
+      content="corsmirror,cors,mirror,proxy,http,request,rest,api,web,development"
+    />
+    <meta name="apple-mobile-web-app-title" content="CORSmirror" />
+    <meta name="application-name" content="CORSmirror" />
+    <meta name="msapplication-TileColor" content="#000" />
+    {{!-- Skeleton --}}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {{!-- Highlight.js --}}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github.min.css"
+      integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {{!-- Custom Styles --}}
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">{{{body}}}</div>
+    {{!-- Google Analytics --}} {{#if gaId}}
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        'script',
+        'https://www.google-analytics.com/analytics.js',
+        'ga'
+      );
+      ga('create', '{{gaId}}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {{/if}} {{!-- GitHub Corners --}}
+    <script
+      src="https://unpkg.com/github-corners/dist/embed.min.js"
+      data-href="https://github.com/CORSmirror/CORSmirror"
+      data-target="_blank"
+      async
+      defer
+    ></script>
+  </body>
 </html>
