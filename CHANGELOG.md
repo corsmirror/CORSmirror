@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.1.0](https://github.com/CORSmirror/CORSmirror/compare/v1.0.0...v1.1.0) (2022-09-11)
+
+
+### Features
+
+* **views:** add GitHub Corners and update highlight in layout.html ([392fffb](https://github.com/CORSmirror/CORSmirror/commit/392fffbcd35a56de32e594f978282e5df3a46c24))
+
 ## [1.0.0](https://github.com/CORSmirror/CORSmirror/compare/v0.0.5...v1.0.0) (2022-09-06)
 
 ### ⚠ BREAKING CHANGES
