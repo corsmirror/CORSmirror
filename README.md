@@ -15,7 +15,7 @@ The web service is built with:
 - [cors](https://github.com/expressjs/cors)
 - [request](https://github.com/request/request)
 
-For more information, check out the [repository](https://github.com/CORSmirror/CORSmirror).
+For more information, check out the [site](https://corsmirror.onrender.com/), [Replit](https://replit.com/@remarkablemark/CORSmirror), or the [repository](https://github.com/CORSmirror/CORSmirror).
 
 ## Usage
 
