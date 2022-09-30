@@ -15,7 +15,7 @@
     "content-type": "1.0.4",
     "cors": "2.8.5",
     "debug": "4.3.4",
-    "dotenv": "16.0.2",
+    "dotenv": "16.0.3",
     "express": "4.18.1",
     "hbs": "4.2.0",
     "highlight.js": "11.6.0",
