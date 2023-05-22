@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://corsmirror.onrender.com">
-    <img src="https://github.com/CORSmirror.png?s=300">
+    <img src="https://github.com/CORSmirror.png?size=300" alt="CORSmirror">
   </a>
 </p>
 
@@ -53,23 +53,44 @@ Contributions are welcome!
 
 ### Installation
 
+Clone the repository:
+
 ```bash
 git clone https://github.com/CORSmirror/CORSmirror.git
 cd CORSmirror
+```
+
+Install the dependencies:
+
+```bash
 npm install
 ```
 
 ### Run
 
+Start the development server:
+
 ```bash
-npm run dev # development
-npm start   # production
+npm run dev
+```
+
+Start the production server:
+
+```bash
+npm start
 ```
 
 ### Testing
 
+Run tests:
+
 ```bash
 npm test
+```
+
+Run lint:
+
+```bash
 npm run lint
 ```
 
