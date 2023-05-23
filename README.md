@@ -47,10 +47,6 @@ fetch(
 
 ## Development
 
-This is an open-source project so feel free to fork the [repository](https://github.com/CORSmirror/CORSmirror) and play with the server.
-
-Contributions are welcome!
-
 ### Installation
 
 Clone the repository:
@@ -93,6 +89,10 @@ Run lint:
 ```bash
 npm run lint
 ```
+
+## Contributions
+
+This is an open source project so feel free to fork the [repository](https://github.com/CORSmirror/CORSmirror/fork). Contributions are welcome!
 
 ## License
 
