@@ -25,10 +25,10 @@ The RESTful API is as follows:
 https://corsmirror.onrender.com/v1/cors?url=<url>
 ```
 
-So if you want to [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) [https://example.com](https://example.com), you can:
+So if you want to [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) [http://example.com](http://example.com), you can:
 
 ```javascript
-fetch('https://corsmirror.onrender.com/v1/cors?url=https://example.com')
+fetch('https://corsmirror.onrender.com/v1/cors?url=http://example.com')
   .then((response) => response.text())
   .then((data) => console.log(data));
 ```
@@ -37,7 +37,7 @@ You can pass additional query strings that sets or overrides the [response heade
 
 ```javascript
 fetch(
-  'https://corsmirror.onrender.com/v1/cors?url=https://example.com&content-type=text/plain'
+  'https://corsmirror.onrender.com/v1/cors?url=http://example.com&content-type=text/plain'
 )
   .then((response) => response.headers.get('content-type'))
   .then((data) => console.log(data));
