@@ -33,7 +33,7 @@ fetch('https://corsmirror.onrender.com/v1/cors?url=http://example.com')
   .then((data) => console.log(data));
 ```
 
-You can pass additional query strings that sets or overrides the [response header fields](https://wikipedia.org/wiki/List_of_HTTP_header_fields):
+You can also pass additional query strings that sets or overrides the [response header fields](https://wikipedia.org/wiki/List_of_HTTP_header_fields):
 
 ```javascript
 fetch(
