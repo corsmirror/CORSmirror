@@ -12,13 +12,13 @@ const marked = new Marked(
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
-  })
+  }),
 );
 
 // convert README from markdown to HTML
 const readmeMarkdown = fs.readFileSync(
   path.resolve(__dirname, '../README.md'),
-  'utf8'
+  'utf8',
 );
 const readmeHTML = marked.parse(readmeMarkdown);
 
