@@ -13,7 +13,7 @@ describe('GET /v1/cors', () => {
         .expect(404)
         .expect((response) => {
           expect(response.text).toBe(
-            'Please specify a valid `url` query parameter.'
+            'Please specify a valid `url` query parameter.',
           );
         })
         .end(done);
