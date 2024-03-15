@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## 1.0.0 (2024-03-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* set minimum Node.js version to 18
+
+### Features
+
+* rename /heartbeat to /healthcheck and modularize routes & tests ([dbf7dc1](https://github.com/corsmirror/CORSmirror/commit/dbf7dc1c7f8a8a9e24227da8387ba8ec0d4acc95))
+* **views:** add GitHub Corners and update highlight in layout.html ([392fffb](https://github.com/corsmirror/CORSmirror/commit/392fffbcd35a56de32e594f978282e5df3a46c24))
+
+
+### Build System
+
+* add .nvmrc and set node to 18 and npm to 8.6 in package.json ([cf7e8d7](https://github.com/corsmirror/CORSmirror/commit/cf7e8d7325e3d60f7d1332abc0596ba3dd4fd56e))
+
 ## [1.1.0](https://github.com/CORSmirror/CORSmirror/compare/v1.0.0...v1.1.0) (2022-09-11)
 
 
