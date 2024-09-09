@@ -19,7 +19,7 @@
     "express": "4.19.2",
     "hbs": "4.2.0",
     "highlight.js": "11.10.0",
-    "marked": "14.1.0",
+    "marked": "14.1.2",
     "marked-highlight": "2.1.4",
     "morgan": "1.10.0",
     "request": "2.88.2"
