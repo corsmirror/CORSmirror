@@ -16,7 +16,7 @@
     "cors": "2.8.5",
     "debug": "4.3.6",
     "dotenv": "16.4.5",
-    "express": "4.19.2",
+    "express": "4.20.0",
     "hbs": "4.2.0",
     "highlight.js": "11.10.0",
     "marked": "14.1.0",
