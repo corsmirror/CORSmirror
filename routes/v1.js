@@ -52,6 +52,7 @@ module.exports = router.all('/cors', (req, res) => {
             try {
               contentType.parse(fieldValue);
               // TypeError: invalid media type
+              // eslint-disable-next-line no-unused-vars
             } catch (error) {
               res.status(500);
               res.send('Invalid "Content-Type" parameter.');
