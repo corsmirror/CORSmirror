@@ -14,7 +14,7 @@
   "dependencies": {
     "content-type": "1.0.5",
     "cors": "2.8.5",
-    "debug": "4.3.7",
+    "debug": "4.4.0",
     "dotenv": "16.4.7",
     "express": "4.21.2",
     "hbs": "4.2.0",
