@@ -20,7 +20,7 @@
     "hbs": "4.2.0",
     "highlight.js": "11.11.1",
     "marked": "15.0.12",
-    "marked-highlight": "2.2.1",
+    "marked-highlight": "2.2.2",
     "morgan": "1.10.0",
     "request": "2.88.2"
   },
