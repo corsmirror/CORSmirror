@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## 1.1.1 (2025-11-14)
+
+
+### Miscellaneous Chores
+
+* release 1.1.1 ([a2d67b4](https://github.com/corsmirror/CORSmirror/commit/a2d67b41d63a61eaad58b4d77d4e37d75da630ef))
+
 ## [1.1.1](https://github.com/CORSmirror/CORSmirror/compare/v1.1.0...v1.1.1) (2024-03-16)
 
 ### Miscellaneous Chores
