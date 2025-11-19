@@ -15,7 +15,7 @@ The web service is built with:
 - [cors](https://github.com/expressjs/cors)
 - [request](https://github.com/request/request)
 
-For more information, check out the [site](https://corsmirror.onrender.com/), [Replit](https://replit.com/@remarkablemark/CORSmirror), or the [repository](https://github.com/CORSmirror/CORSmirror).
+For more information, check out the [site](https://corsmirror.onrender.com/) or the [repository](https://github.com/CORSmirror/CORSmirror).
 
 ## Usage
 
@@ -37,7 +37,7 @@ You can also pass additional query strings that sets or overrides the [response 
 
 ```javascript
 fetch(
-  'https://corsmirror.onrender.com/v1/cors?url=http://example.com&content-type=text/plain'
+  'https://corsmirror.onrender.com/v1/cors?url=http://example.com&content-type=text/plain',
 )
   .then((response) => response.headers.get('content-type'))
   .then((data) => console.log(data));
