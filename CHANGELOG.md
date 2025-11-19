@@ -1,8 +1,10 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
+## [1.1.2](https://github.com/CORSmirror/CORSmirror/compare/v1.1.0...v1.1.1) (2025-11-19)
 
-The format is based on [Keep a Changelog](http://keepachangelog.com) and this project adheres to [Semantic Versioning](http://semver.org).
+### Miscellaneous Chores
+
+- release 1.1.2 ([7318d14](https://github.com/corsmirror/CORSmirror/commit/7318d14aee0e48726bc72a832acbf307eec7ed29))
 
 ## [1.1.1](https://github.com/CORSmirror/CORSmirror/compare/v1.1.0...v1.1.1) (2024-03-16)
 
