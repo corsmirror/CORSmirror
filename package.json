@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "2.0.2",
-    "@eslint/eslintrc": "3.3.3",
+    "@eslint/eslintrc": "3.3.4",
     "@eslint/js": "10.0.1",
     "eslint": "10.0.1",
     "eslint-plugin-prettier": "5.5.5",
